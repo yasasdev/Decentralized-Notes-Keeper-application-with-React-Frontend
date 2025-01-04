@@ -16,7 +16,7 @@ function App() {
   }
 
   useEffect(() => {
-    console.log("useEffect is triggered!");
+    // console.log("useEffect is triggered!");
     fetchData();
   }, []); //Adding an empty array as the second argument triggers the useEffect only once
 
@@ -26,11 +26,13 @@ function App() {
   }
 
   function deleteNote(id) {
+    dkeeper_backend.removeNotes(id);
+
     setNotes(prevNotes => {
       return prevNotes.filter((noteItem, index) => {
         return index !== id;
       });
-    });
+    });    
   }
 
   return (
